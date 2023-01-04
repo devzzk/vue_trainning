@@ -10,6 +10,20 @@
 </head>
 <body>
     <div id="app">
+        <!-- 
+            vue 键盘别名
+             回车: enter 
+             删除: delete 
+             退出: esc 
+             空格: space 
+             换行: tab  特殊 只能配合keydown 使用 
+             上: up 
+             下: down 
+             左: left 
+             右: right 
+
+             系统修饰键 ctrl alt meta(win, command) shift 
+         -->
         <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo">
     </div>
 

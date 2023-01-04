@@ -41,6 +41,9 @@
             4: capture 使用事件的捕获模式
             5: self 只有event.target 是当前操作的元素时才触发事件
             6: passive 事件的默认行为立即执行,无需等到回调执行完毕
+
+            事件修饰符可以连着写 如
+             @click.stop.prevent 
          -->
         <!-- 阻止默认事件 -->
          <a :href="url" @click.prevent="showInfo1"> baidu </a>
