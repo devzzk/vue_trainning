@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>初识vue</title>
+<!--    开发版本vue -->
+    <script src="../../public/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    模板语法-->
+    {{ name }}
+
+<!--    v-bind 单项绑定，数据只能从data 流向页面
+        v-model 双向绑定，数据可以从data 流向页面， 也可以从页面流向data  一般用在
+ -->
+    <input type="text" v-bind:value="name">
+</div>
+
+<script>
+    Vue.config.productionTip = false
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            name: "hello word",
+        }
+    })
+</script>
+</body>
+</html>

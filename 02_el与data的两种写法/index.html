@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../public/js/vue.js"></script>
+    <title>el 与 data 的两种写法</title>
+</head>
+<body>
+<div id="app">
+    <h1>你好， {{name}}</h1>
+</div>
+
+<script>
+    Vue.config.productionTip = false
+
+    // el 的两种写法
+    // const app = new Vue({
+    //     // el: '#app',
+    //     data: {
+    //         name: 'word'
+    //     }
+    // })
+
+    // app.$mount("#app")
+
+    // data 的第二种写法, 在使用函数式 时, 必须用下面方法
+    // 不能用 data: ()=>{return {}}
+    const app = new Vue({
+        el: '#app',
+        data(){
+            return {
+                name: 'word'
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

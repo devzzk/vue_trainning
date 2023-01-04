@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../public/js/vue.js"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+        .box1{
+            padding: 5px;
+            background-color: aqua;
+        }
+        .box2{
+            padding: 5px;
+            background-color: blue;
+            height: 10px;
+        }
+        .list{
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 
+            vue 中的事件修饰符:
+            1: prevent 阻止默认事件(常用)
+            2: stop 阻止事件冒泡(常用)
+            3: once 事件只触发一次(常用)
+            4: capture 使用事件的捕获模式
+            5: self 只有event.target 是当前操作的元素时才触发事件
+            6: passive 事件的默认行为立即执行,无需等到回调执行完毕
+         -->
+        <!-- 阻止默认事件 -->
+         <a :href="url" @click.prevent="showInfo1"> baidu </a>
+
+<!-- 阻止事件冒泡 -->
+         <div @click="showInfo1" style="color: aqua;">
+            <!-- 不会触发弹窗事件 -->
+           只有一次弹窗 <button @click.stop="showInfo1">你好</button> 
+         </div>
+<!-- 事件只触发一次 -->
+         弹窗只触发一次<button @click.once="showInfo1">你好</button>
+         
+<!--         使用事件的捕获模式-->
+         <div class="box1" @click.capture="showMsg(1)">
+            <div class="box2" @click="showMsg(2)">
+
+            </div>
+         </div>
+
+         <ul class="list" @wheel.passive="demo">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+         </ul>
+    </div>
+
+
+    <script type="text/javascript">
+        const vm = new Vue ({
+            el: '#app',
+            data(){
+              return {
+                url: 'https://www.baidu.com'
+              }
+            },
+            methods:{
+                showInfo1(){
+                    alert('你好哦')
+                },
+                showMsg(a) {
+                   console.log(a)
+                } ,
+                demo() {
+
+                //    console.log('#')
+
+                    for (let i = 0; i < 100000; i++ ) {
+                        console.log('@')
+                    }
+                } 
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../public/js/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        v-on:xxx 和 @xxx 都可以绑定事件 xxx 是事件名
+     -->
+
+<div id="app">
+    <h2> 学习{{name }}</h2>
+    <button @click="showInfo1">点我提示信息1(不穿参)</button>
+    <button @click="showInfo2($event, 66)">点我提示信息2(传参)</button>
+</div>
+
+    <script>
+        Vue.config.productionTip = false
+    
+        const app = new Vue ({
+            el: '#app',
+            data(){
+              return {
+                name:'vue'
+              }
+            },
+            methods: {
+                showInfo1(event){
+                    // alert('你好')
+                    // console.log(event)
+                    console.log(this)
+                },
+                showInfo2(event, number ){
+                    // this 指向都是 app 或 组件实例对象
+                    // 不可用 => 函数, 否则this 指向就不是app 了
+                }
+            },
+           
+        })
+    </script>
+
+</body>
+</html>
